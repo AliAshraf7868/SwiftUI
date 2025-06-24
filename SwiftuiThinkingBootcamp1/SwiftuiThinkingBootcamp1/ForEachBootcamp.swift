@@ -21,9 +21,9 @@ struct ForEachBootcamp: View {
 //                }
 //            }
 //            .padding()
-            ForEach (data.indices) { index in
-                Text("\(data[index]): \(index)")
-            }
+//            ForEach (data.indices) { index in
+//                Text("\(data[index]): \(index)")
+//            }
         }
     }
 }

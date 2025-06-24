@@ -24,6 +24,7 @@ struct SheetsBootcamp: View {
                     .background(Color.white)
                     .cornerRadius(20)
             }
+//            .fullScreenCover(isPresented: $showSheet, content: { SecondScreen() })
             .sheet(isPresented: $showSheet) {
                 SecondScreen()
             }
@@ -32,13 +33,13 @@ struct SheetsBootcamp: View {
 }
 
 struct SecondScreen: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack(alignment: .topLeading) {
             Color.red
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
-                
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "xmark")
                     .foregroundStyle(.white)
@@ -51,5 +52,5 @@ struct SecondScreen: View {
 }
 
 #Preview {
-    SecondScreen()
+    SheetsBootcamp()
 }
