@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct GridBootcamp: View {
+    let columns: [GridItem] = [
+        GridItem(.adaptive(minimum: 55)),
+//        GridItem(.adaptive(minimum: 155)),
+//        GridItem(.flexible()),
+//        GridItem(.flexible()),
+//        GridItem(.flexible()),
+    ]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(0..<100) { index in
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 55)
+                            .foregroundColor(Color.blue)
+                        Text("\(index)")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            
+                    }
+                    
+                }
+            }
+            .padding()
+        }
     }
 }
 

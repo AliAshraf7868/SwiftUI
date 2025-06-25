@@ -14,7 +14,7 @@ struct AnimationsBootcamp: View {
     var body: some View {
         VStack {
             Button {
-                withAnimation(Animation.default.repeatCount(5)) { //Animation.default.delay(0.2)
+                withAnimation(Animation.default.repeatCount(1)) { //Animation.default.delay(0.2)
                     isAnimating.toggle()
                 }
             } label: {

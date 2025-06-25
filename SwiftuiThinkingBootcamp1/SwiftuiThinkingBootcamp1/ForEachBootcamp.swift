@@ -11,16 +11,16 @@ struct ForEachBootcamp: View {
     var data: [[String]] = [["0","1","2","3"],["4","5","6","7"],["8","9","10","11"]]
     var body: some View {
         VStack {
-//            ForEach(0..<10) { index in
-////                Text("\(index)")
-//                HStack {
-//                    Circle()
-//                        .frame(width: 10, height: 10)
-//                        .foregroundColor(Color.blue)
-//                    Text("\(index)")
-//                }
-//            }
-//            .padding()
+            ForEach(0..<10) { index in
+//                Text("\(index)")
+                HStack {
+                    Circle()
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(Color.blue)
+                    Text("\(index)")
+                }
+            }
+            .padding()
 //            ForEach (data.indices) { index in
 //                Text("\(data[index]): \(index)")
 //            }

@@ -11,13 +11,14 @@ struct SafeAreaBootcamp: View {
     var body: some View {
         ZStack {
             Color.blue
+//                .ignoresSafeArea()
             VStack {
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                Spacer()
+//                Spacer()
             }
             .background(Color.green)
         }
-        .background(Color.green)
+//        .background(Color.green)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .background(Color.blue)
         
