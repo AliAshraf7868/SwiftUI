@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-
+//struct check: ObservableObject {
+//    @Published var text: String = ""
+//}
 class EnvironmentViewModel: ObservableObject {
     @Published var dataArray: [String] = []
     
@@ -16,7 +18,12 @@ class EnvironmentViewModel: ObservableObject {
     }
     
     func getData() {
+        
         dataArray.append(contentsOf: ["iPhone", "iPad", "Mac","Apple Watch"])
+    }
+    
+    func deleteItem(at index: Int) {
+        dataArray.remove(at: index)
     }
 }
 
@@ -28,7 +35,7 @@ struct EnvironmentBootCamp: View {
             List {
                 ForEach(viewModel.dataArray, id: \.self) { item in
                     NavigationLink(destination:
-                                    DetailView(selectedItem: item)
+                                    DetailView(selectedItem: item, viewModel: viewModel)
                     ) {
 //
                         Text(item)
@@ -44,6 +51,7 @@ struct EnvironmentBootCamp: View {
 
 struct DetailView: View {
     let selectedItem: String
+    @ObservedObject var viewModel: EnvironmentViewModel
     var body: some View {
         ZStack {
             Color.orange
@@ -51,7 +59,7 @@ struct DetailView: View {
             NavigationLink {
                 DetailAppleView(selectedItem: "Apple")
             } label: {
-                Text(selectedItem)
+                Text(viewModel.dataArray.first ?? "Apple")
                     .font(.largeTitle)
                     .foregroundStyle(.orange)
                     .padding()
@@ -74,10 +82,16 @@ struct DetailAppleView: View {
             ScrollView {
                 VStack {
                     ForEach(0..<VM.dataArray.count, id: \.self) { index in
-                        Text(VM.dataArray[index])
-                            .font(.largeTitle)
-                            .foregroundStyle(.orange)
-                            .padding()
+                        Button {
+                            VM.deleteItem(at: index)
+                            
+                        } label: {
+                            Text(VM.dataArray[index])
+                                .font(.largeTitle)
+                                .foregroundStyle(.orange)
+                                .padding()
+                        }
+
                     }
                 }
             }

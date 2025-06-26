@@ -95,7 +95,11 @@ struct FruitViewScreen: View {
 //                presentationMode.wrappedValue.dismiss()
 //            }
             List {
+                Button("Add fruits again") {
+                    fruitViewModel.addFruit()
+                }
                 ForEach(fruitViewModel.fruitArray) { fruit in
+                    
                     Text(fruit.name)
                 }
             }
